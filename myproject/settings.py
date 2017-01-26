@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-
+import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,15 +25,20 @@ SECRET_KEY = '_)8jl5#b7#=lbg4nzl39%b0%&+9jaao)edq28kw51ddu#3ot0d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+PROJECT_ROOT = os.path.dirname(__file__)
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'myapp'))
+
+
 '''
 SETTINGS_PATH = os.path.dirname(__file__)
 PROJECT_PATH = os.path.join(SETTINGS_PATH, os.pardir)
 PROJECT_PATH = os.path.abspath(PROJECT_PATH)
-TEMPLATES_PATH = os.path.join(PROJECT_PATH, "/templates/blog")
+APPEND_PATH = os.path.join(PROJECT_PATH, "/myapp")
+sys.path.append(APPEND_PATH)'''
 
-TEMPLATE_DIRS = (
-    TEMPLATES_PATH,
-)'''
+
+
 
 ALLOWED_HOSTS = []
 
@@ -47,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'myapp',
     'blog', 
 ]
 

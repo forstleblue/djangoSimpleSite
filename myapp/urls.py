@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
+from myapp import views
 
 
 urlpatterns = [
@@ -23,7 +23,7 @@ urlpatterns = [
    #url(r'^$', 'myproject.view.home', name = 'home'),
    #  url(r'^blog/', include('blog.urls')),
 
-  url(r'^admin/', admin.site.urls),
-  url(r'^myapp/', include('myapp.urls')),
-  #url(r'', include('blog.urls')), 
+  url(r'^admin/', admin.site.urls),  
+  url(r'^hello/$', views.hello, name ="hello"), 
+ 
 ]
